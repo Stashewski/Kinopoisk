@@ -25,6 +25,11 @@
          android:background="#7C4DFF"
          app:layout_constraintTop_toTopOf="parent"/>
 
-
+    <FrameLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#69F0AE"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
