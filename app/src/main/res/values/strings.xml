@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">firstProject</string>
+    <string name="movieposters_web_text">Картинки взяты с www.movieposters.com</string>
+    <string name="appname">Film Search</string>
+    <string name="btn_menu">МEHЮ</string>
+    <string name="btn_favorite">ИЗБРАННОЕ</string>
+    <string name="btn_later">ПОСМОТРЕТЬ ПОЗЖЕ</string>
+    <string name="btn_selections">ПОДБОРКИ</string>
+    <string name="btn_settings">НАСТРОЙКИ</string>
 </resources>
