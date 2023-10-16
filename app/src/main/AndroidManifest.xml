@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.uladzislaumak.firstproject"
     xmlns:tools="http://schemas.android.com/tools">
+
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,7 @@
         android:theme="@style/Theme.FirstProject"
 
         tools:targetApi="33">
+        <activity android:name=".DetailsFragment"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
