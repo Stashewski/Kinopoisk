@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstProject"
 
+
         tools:targetApi="33">
+        <activity android:name=".DetailsFragment">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
