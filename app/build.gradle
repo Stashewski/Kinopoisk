@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+
 }
 
 android {
@@ -17,6 +19,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
         release {
             minifyEnabled false
@@ -29,6 +32,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildToolsVersion '33.0.1'
+}
+android {
+    viewBinding {
+        enabled = true
     }
 }
 

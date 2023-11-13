@@ -1,8 +1,8 @@
 package com.uladzislaumak.firstproject
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
+import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Film(
   val title: String,

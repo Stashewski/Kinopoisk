@@ -1,46 +1,69 @@
 package com.uladzislaumak.firstproject
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_favorites.*
+import androidx.fragment.app.Fragment
 
-class FavoritesFragment : Fragment() {
-    private lateinit var filmsAdapter: FilmListRecyclerAdapter
+import com.uladzislaumak.firstproject.databinding.FragmentDetailsBinding
+
+class DetailsFragment : Fragment() {
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var film: Film
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Получаем список при транзакции фрагмента
-        val favoritesList: List<Film> = emptyList()
 
-        AnimationHelper.performFragmentCircularRevealAnimation(favorites_fragment_root, requireActivity(),2)
+        setFilmsDetails()
 
-        favorites_recycler.apply {
-            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
-                override fun click(film: Film) {
-                    (requireActivity() as MainActivity).launchDetailsFragment(film)
-                }
-            })
-            //Присваиваем адаптер
-            adapter = filmsAdapter
-            //Присвои layoutmanager
-            layoutManager = LinearLayoutManager(requireContext())
-            //Применяем декоратор для отступов
-            val decorator = TopSpacingItemDecoration(8)
-            addItemDecoration(decorator)
+        binding.detailsFabFavorites.setOnClickListener {
+            if (!film.isInFavorites) {
+                binding.detailsFabFavorites.setImageResource(R.drawable.ic_baseline_favorite_24)
+                film.isInFavorites = true
+            } else {
+                binding.detailsFabFavorites.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                film.isInFavorites = false
+            }
         }
-        //Кладем нашу БД в RV
-        filmsAdapter.addItems(favoritesList)
+
+        binding.detailsFabShare.setOnClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Check out this film: ${film.title} \n\n ${film.description}"
+            )
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, "Share To:"))
+        }
+    }
+
+    private fun setFilmsDetails() {
+        film = arguments?.get("film") as Film
+
+        binding.detailsToolbar.title = film.title
+        binding.detailsPoster.setImageResource(film.poster)
+        binding.detailsDescription.text = film.description
+
+        binding.detailsFabFavorites.setImageResource(
+            if (film.isInFavorites) R.drawable.ic_baseline_favorite_24
+            else R.drawable.ic_baseline_favorite_border_24
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
