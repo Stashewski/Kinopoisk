@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace 'com.uladzislaumak.firstproject'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.uladzislaumak.firstproject"
