@@ -1,4 +1,4 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.untils
 
 import android.app.Activity
 import android.view.View

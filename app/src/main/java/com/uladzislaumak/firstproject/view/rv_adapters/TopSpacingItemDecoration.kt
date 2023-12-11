@@ -1,4 +1,4 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect

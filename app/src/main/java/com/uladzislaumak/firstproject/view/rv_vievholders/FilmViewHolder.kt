@@ -1,9 +1,9 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.view.rv_vievholders
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.uladzislaumak.firstproject.databinding.FilmItemBinding
+import com.uladzislaumak.firstproject.domain.Film
 
 class FilmViewHolder(private val binding: FilmItemBinding) : RecyclerView.ViewHolder(binding.root) {
 

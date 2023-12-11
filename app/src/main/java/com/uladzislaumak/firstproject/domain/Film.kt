@@ -1,4 +1,4 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.domain
 
 import android.os.Parcelable
 

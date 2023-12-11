@@ -1,4 +1,4 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
+import com.uladzislaumak.firstproject.untils.AnimationHelper
 
 class WatchLaterFragment : Fragment() {
     private var _binding: FragmentWatchLaterBinding? = null

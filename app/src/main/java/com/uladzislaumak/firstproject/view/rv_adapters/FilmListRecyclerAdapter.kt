@@ -1,9 +1,10 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.view.rv_adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.uladzislaumak.firstproject.databinding.FilmItemBinding
+import com.uladzislaumak.firstproject.domain.Film
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса активити
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<FilmListRecyclerAdapter.FilmViewHolder>() {

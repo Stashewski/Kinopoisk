@@ -1,4 +1,4 @@
-package com.uladzislaumak.firstproject
+package com.uladzislaumak.firstproject.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,18 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.uladzislaumak.firstproject.databinding.FragmentDetailsBinding
+import com.uladzislaumak.firstproject.R
 
+import com.uladzislaumak.firstproject.databinding.FragmentDetailsBinding
+import com.uladzislaumak.firstproject.domain.Film
 
 class DetailsFragment : Fragment() {
-    private lateinit var binding: FragmentDetailsBinding
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
     private lateinit var film: Film
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -59,5 +62,10 @@ class DetailsFragment : Fragment() {
             if (film.isInFavorites) R.drawable.ic_baseline_favorite_24
             else R.drawable.ic_baseline_favorite_border_24
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
