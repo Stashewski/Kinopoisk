@@ -15,9 +15,7 @@
 
 
         tools:targetApi="33">
-        <activity android:name=".view.fragments.`DetailsFragment.kt`">
-
-        </activity>
+        
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
