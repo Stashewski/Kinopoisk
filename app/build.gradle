@@ -13,7 +13,6 @@ android {
     defaultConfig {
         applicationId "com.uladzislaumak.firstproject"
         minSdk 33
-        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -34,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildToolsVersion '33.0.1'
+    buildToolsVersion '34'
 }
 android {
     viewBinding {
