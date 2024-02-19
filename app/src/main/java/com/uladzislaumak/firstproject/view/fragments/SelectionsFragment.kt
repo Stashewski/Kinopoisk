@@ -7,26 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentSelectionsBinding
 import com.uladzislaumak.firstproject.untils.AnimationHelper
+import com.uladzislaumak.firstproject.databinding.FragmentSelectionsBinding
+import kotlinx.android.synthetic.main.fragment_selections.*
 
 class SelectionsFragment : Fragment() {
-    private var _binding: FragmentSelectionsBinding? = null
-    private val binding get() = _binding!!
-
+    private lateinit var binding: FragmentSelectionsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSelectionsBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentSelectionsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.selectionsFragmentRoot, requireActivity(), 4)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        AnimationHelper.performFragmentCircularRevealAnimation(selections_fragment_root, requireActivity(), 4)
     }
 }

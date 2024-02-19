@@ -1,12 +1,11 @@
-package com.amsdevelops.firstproject.di.modules
+package com.uladzislaumak.firstproject.di.modules
 
 
 import android.content.Context
-import com.amsdevelops.firstproject.App
-import com.amsdevelops.firstproject.data.MainRepository
-import com.amsdevelops.firstproject.data.TmdbApi
-import com.amsdevelops.firstproject.data.preferenes.PreferenceProvider
-import com.amsdevelops.firstproject.domain.Interactor
+import com.uladzislaumak.firstproject.data.MainRepository
+import com.uladzislaumak.firstproject.data.TmdbApi
+import com.uladzislaumak.firstproject.data.preferenes.PreferenceProvider
+import com.uladzislaumak.firstproject.domain.Interactor
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

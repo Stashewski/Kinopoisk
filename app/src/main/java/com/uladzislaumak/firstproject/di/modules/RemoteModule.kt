@@ -1,8 +1,8 @@
-package com.amsdevelops.firstproject.di.modules
+package com.uladzislaumak.firstproject.di.modules
 
-import com.amsdevelops.firstproject.BuildConfig
-import com.amsdevelops.firstproject.data.ApiConstants
-import com.amsdevelops.firstproject.data.TmdbApi
+import com.uladzislaumak.firstproject.BuildConfig
+import com.uladzislaumak.firstproject.data.ApiConstants
+import com.uladzislaumak.firstproject.data.TmdbApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

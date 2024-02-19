@@ -1,6 +1,6 @@
-package com.amsdevelops.firstproject.data
+package com.uladzislaumak.firstproject.data
 
-import com.amsdevelops.firstproject.data.Entity.TmdbResults
+import com.uladzislaumak.firstproject.data.Entity.TmdbResults
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

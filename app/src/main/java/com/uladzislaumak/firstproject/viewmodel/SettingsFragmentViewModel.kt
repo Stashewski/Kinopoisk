@@ -2,8 +2,8 @@ package com.uladzislaumak.firstproject.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amsdevelops.firstproject.App
-import com.amsdevelops.firstproject.domain.Interactor
+import com.uladzislaumak.firstproject.App
+import com.uladzislaumak.firstproject.domain.Interactor
 import javax.inject.Inject
 
 class SettingsFragmentViewModel : ViewModel() {

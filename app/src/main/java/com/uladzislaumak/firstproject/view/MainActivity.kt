@@ -3,14 +3,14 @@ package com.uladzislaumak.firstproject.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.amsdevelops.firstproject.*
-import com.amsdevelops.firstproject.databinding.ActivityMainBinding
-import com.amsdevelops.firstproject.domain.Film
-import com.amsdevelops.firstproject.view.fragments.*
+import com.uladzislaumak.firstproject.*
+import com.uladzislaumak.firstproject.databinding.ActivityMainBinding
+import com.uladzislaumak.firstproject.view.fragments.*
 import com.uladzislaumak.firstproject.view.fragments.`DetailsFragment.kt`
 import com.uladzislaumak.firstproject.R
 import com.uladzislaumak.firstproject.view.fragments.SelectionsFragment
 import com.uladzislaumak.firstproject.view.fragments.WatchLaterFragment
+import com.uladzislaumak.firstproject.data.entity.Film
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         //Кладем наш фильм в "посылку"
         bundle.putParcelable("film", film)
         //Кладем фрагмент с деталями в перменную
-        val fragment = `DetailsFragment.kt`()
+        val fragment = DetailsFragment()
         //Прикрепляем нашу "посылку" к фрагменту
         fragment.arguments = bundle
 
@@ -78,6 +78,12 @@ class MainActivity : AppCompatActivity() {
                     val tag = "selections"
                     val fragment = checkFragmentExistence(tag)
                     changeFragment( fragment?: SelectionsFragment(), tag)
+                    true
+                }
+                R.id.settings -> {
+                    val tag = "settings"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: SettingsFragment(), tag)
                     true
                 }
                 else -> false
