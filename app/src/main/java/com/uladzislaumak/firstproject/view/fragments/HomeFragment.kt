@@ -7,17 +7,25 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amsdevelops.firstproject.data.entity.Film
-import com.amsdevelops.firstproject.view.rv_adapters.TopSpacingItemDecoration
-import com.amsdevelops.firstproject.databinding.FragmentHomeBinding
-import com.amsdevelops.firstproject.utils.AnimationHelper
-import com.amsdevelops.firstproject.view.MainActivity
-import com.amsdevelops.firstproject.view.rv_adapters.FilmListRecyclerAdapter
-import com.amsdevelops.firstproject.viewmodel.HomeFragmentViewModel
+import com.uladzislaumak.firstproject.data.entity.Film
+import com.uladzislaumak.firstproject.view.rv_adapters.TopSpacingItemDecoration
+import com.uladzislaumak.firstproject.databinding.FragmentHomeBinding
+import com.uladzislaumak.firstproject.utils.AnimationHelper
+import com.uladzislaumak.firstproject.view.MainActivity
+import com.uladzislaumak.firstproject.view.rv_adapters.FilmListRecyclerAdapter
+import com.auladzislaumak.firstproject.viewmodel.HomeFragmentViewModel
 import kotlinx.android.firstproject.main.fragment_home.*
+import java.util.*
+import androidx.core.view.isVisible
+import com.uladzislaumak.firstproject.data.entity.Film
+import com.uladzislaumak.firstproject.databinding.FragmentHomeBinding
+import com.uladzislaumak.firstproject.utils.AnimationHelper
+import com.uladzislaumak.firstproject.viewmodel.HomeFragmentViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -26,6 +34,7 @@ class HomeFragment : Fragment() {
     }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var scope: CoroutineScope
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -60,14 +69,29 @@ class HomeFragment : Fragment() {
         //находим наш RV
         initRecyckler()
         //Кладем нашу БД в RV
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
-            filmsDataBase = it
-            filmsAdapter.addItems(it)
-        })
-        viewModel.showProgressBar.observe(viewLifecycleOwner, Observer<Boolean> {
-            binding.progressBar.isVisible = it
-        })
 
+        scope = CoroutineScope(Dispatchers.IO).also { scope ->
+            scope.launch {
+                viewModel.filmsListData.collect {
+                    withContext(Dispatchers.Main) {
+                        filmsAdapter.addItems(it)
+                        filmsDataBase = it
+                    }
+                }
+            }
+            scope.launch {
+                for (element in viewModel.showProgressBar) {
+                    launch(Dispatchers.Main) {
+                        binding.progressBar.isVisible = element
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        scope.cancel()
     }
 
     private fun initPullToRefresh() {
@@ -132,4 +156,4 @@ class HomeFragment : Fragment() {
         }
     }
 
-}}
+}

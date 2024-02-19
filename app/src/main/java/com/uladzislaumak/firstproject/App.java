@@ -1,27 +1,28 @@
 package com.uladzislaumak.firstproject;
 
 import android.app.Application
-import com.amsdevelops.firstproject.data.MainRepository
-import com.amsdevelops.firstproject.domain.Interactor
+import com.uladzislaumak.firstproject.di.AppComponent
+import com.uladzislaumak.firstproject.di.DaggerAppComponent
+import com.uladzislaumak.firstproject.di.modules.DatabaseModule
+import com.uladzislaumak.firstproject.di.modules.DomainModule
+import com.uladzislaumak.firstproject.di.modules.RemoteModule
 
 class App : Application() {
-        lateinit var repo: MainRepository
-        lateinit var interactor: Interactor
+        lateinit var dagger: AppComponent
 
         override fun onCreate() {
         super.onCreate()
-        //Инициализируем экземпляр App, через который будем получать доступ к остальным переменным
         instance = this
-        //Инициализируем репозиторий
-        repo = MainRepository()
-        //Инициализируем интерактор
-        interactor = Interactor(repo)
+        //Создаем компонент
+        dagger = DaggerAppComponent.builder()
+        .remoteModule(RemoteModule())
+        .databaseModule(DatabaseModule())
+        .domainModule(DomainModule(this))
+        .build()
         }
 
         companion object {
-        //Здесь статически хранится ссылка на экземпляр App
         lateinit var instance: App
-//Приватный сеттер, чтобы нельзя было в эту переменную присвоить что-либо другое
 private set
         }
         }

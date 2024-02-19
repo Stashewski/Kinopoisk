@@ -7,26 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
 import com.uladzislaumak.firstproject.untils.AnimationHelper
+import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
+import kotlinx.android.synthetic.main.fragment_watch_later.*
 
 class WatchLaterFragment : Fragment() {
-    private var _binding: FragmentWatchLaterBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentWatchLaterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentWatchLaterBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentWatchLaterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.watchLaterFragmentRoot, requireActivity(), 3)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        AnimationHelper.performFragmentCircularRevealAnimation(watch_later_fragment_root, requireActivity(), 3)
     }
 }

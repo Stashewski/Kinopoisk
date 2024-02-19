@@ -1,8 +1,8 @@
-package com.amsdevelops.firstproject.di.modules
+package com.uladzislaumak.firstproject.di.modules
 
 import android.content.Context
-import com.amsdevelops.filmssearch.data.MainRepository
-import com.amsdevelops.filmssearch.data.db.DatabaseHelper
+import com.uladzislaumak.firstproject.data.MainRepository
+import com.uladzislaumak.firstproject.data.db.DatabaseHelper
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

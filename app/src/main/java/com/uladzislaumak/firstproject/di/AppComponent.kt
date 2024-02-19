@@ -1,9 +1,9 @@
-package com.amsdevelops.firstproject.di
+package com.uladzislaumak.firstproject.di
 
-import com.amsdevelops.firstproject.di.modules.DatabaseModule
-import com.amsdevelops.firstproject.di.modules.DomainModule
-import com.amsdevelops.firstproject.di.modules.RemoteModule
-import com.amsdevelops.firstproject.viewmodel.HomeFragmentViewModel
+import com.uladzislaumak.firstproject.di.modules.DatabaseModule
+import com.uladzislaumak.firstproject.di.modules.DomainModule
+import com.uladzislaumak.firstproject.di.modules.RemoteModule
+import com.uladzislaumak.firstproject.viewmodel.HomeFragmentViewModel
 import dagger.Component
 import javax.inject.Singleton
 
