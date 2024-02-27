@@ -1,17 +1,19 @@
 package com.uladzislaumak.firstproject.data.dao
+
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.uladzislaumak.firstproject.data.entity.Film
-import kotlinx.coroutines.flow.Flow
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
 
 //Помечаем, что это не просто интерфейс а Dao объект
 @Dao
 interface FilmDao {
     //Запрос на всю таблицу
     @Query("SELECT * FROM cached_films")
-    fun getCachedFilms(): Flow<List<Film>>
+    fun getCachedFilms(): Observable<List<Film>>
 
     //Кладем списком в БД, в случае конфликта, перезаписываем
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -14,13 +14,17 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.PublishSubject
 
 class HomeFragmentViewModel : ViewModel() {
     //Инициализируем интерактор
     @Inject
     lateinit var interactor: Interactor
-    val filmsListData: Flow<List<Film>>
-    val showProgressBar: Channel<Boolean>
+    val filmsListData: Observable<List<Film>>
+    val showProgressBar: BehaviorSubject<Boolean>
 
     init {
         App.instance.dagger.inject(this)

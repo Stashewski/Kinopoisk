@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
 import com.uladzislaumak.firstproject.untils.AnimationHelper
-import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
-import kotlinx.android.synthetic.main.fragment_watch_later.*
 
 class WatchLaterFragment : Fragment() {
     private lateinit var binding: FragmentWatchLaterBinding

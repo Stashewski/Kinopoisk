@@ -11,7 +11,6 @@ import com.uladzislaumak.firstproject.R
 import com.uladzislaumak.firstproject.databinding.FragmentSettingsBinding
 import com.uladzislaumak.firstproject.utils.AnimationHelper
 import com.uladzislaumak.firstproject.viewmodel.SettingsFragmentViewModel
-import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding

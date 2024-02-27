@@ -1,7 +1,8 @@
-package com.amsdevelops.firstproject.utils
+package com.uladzislaumak.firstproject.utils
 
-import com.amsdevelops.firstproject.data.Entity.TmdbFilm
-import com.amsdevelops.firstproject.domain.Film
+import com.uladzislaumak.firstproject.domain.Film
+import com.uladzislaumak.firstproject.data.entity.TmdbFilm
+import com.uladzislaumak.firstproject.data.entity.Film
 
 object Converter {
     fun convertApiListToDTOList(list: List<TmdbFilm>?): List<Film> {

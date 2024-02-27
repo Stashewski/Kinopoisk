@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentSelectionsBinding
 import com.uladzislaumak.firstproject.untils.AnimationHelper
-import com.uladzislaumak.firstproject.databinding.FragmentSelectionsBinding
-import kotlinx.android.synthetic.main.fragment_selections.*
 
 class SelectionsFragment : Fragment() {
     private lateinit var binding: FragmentSelectionsBinding

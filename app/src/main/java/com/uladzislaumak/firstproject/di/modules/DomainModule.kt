@@ -9,6 +9,7 @@ import com.uladzislaumak.firstproject.domain.Interactor
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
+import com.uladzislaumak.firstproject.App
 
 @Module
 //Передаем контекст для SharedPreferences через конструктор

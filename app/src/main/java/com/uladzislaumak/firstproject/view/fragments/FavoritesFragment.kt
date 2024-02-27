@@ -13,7 +13,6 @@ import com.uladzislaumak.firstproject.view.rv_adapters.TopSpacingItemDecoration
 import com.uladzislaumak.firstproject.databinding.FragmentFavoritesBinding
 import com.auladzislaumak.firstproject.utils.AnimationHelper
 import com.uladzislaumak.firstproject.view.MainActivity
-import kotlinx.android.synthetic.main.fragment_favorites.*
 
 class FavoritesFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter

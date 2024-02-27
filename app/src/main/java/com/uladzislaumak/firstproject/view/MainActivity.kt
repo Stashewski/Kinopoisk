@@ -11,8 +11,6 @@ import com.uladzislaumak.firstproject.R
 import com.uladzislaumak.firstproject.view.fragments.SelectionsFragment
 import com.uladzislaumak.firstproject.view.fragments.WatchLaterFragment
 import com.uladzislaumak.firstproject.data.entity.Film
-
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
