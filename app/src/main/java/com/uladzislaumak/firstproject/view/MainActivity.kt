@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.*
 import com.uladzislaumak.firstproject.databinding.ActivityMainBinding
-import com.uladzislaumak.firstproject.view.fragments.*
-import com.uladzislaumak.firstproject.view.fragments.`DetailsFragment.kt`
-import com.uladzislaumak.firstproject.R
-import com.uladzislaumak.firstproject.view.fragments.SelectionsFragment
-import com.uladzislaumak.firstproject.view.fragments.WatchLaterFragment
 import com.uladzislaumak.firstproject.data.entity.Film
+import com.uladzislaumak.firstproject.view.fragments.*
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

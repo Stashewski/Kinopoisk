@@ -1,12 +1,12 @@
 package com.uladzislaumak.firstproject.view.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.uladzislaumak.firstproject.databinding.FragmentWatchLaterBinding
-import com.uladzislaumak.firstproject.untils.AnimationHelper
+import com.uladzislaumak.firstproject.utils.AnimationHelper
 
 class WatchLaterFragment : Fragment() {
     private lateinit var binding: FragmentWatchLaterBinding
@@ -21,6 +21,6 @@ class WatchLaterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(watch_later_fragment_root, requireActivity(), 3)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.watchLaterFragmentRoot, requireActivity(), 3)
     }
 }

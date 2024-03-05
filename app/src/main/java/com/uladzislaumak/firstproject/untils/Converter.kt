@@ -1,6 +1,5 @@
 package com.uladzislaumak.firstproject.utils
 
-import com.uladzislaumak.firstproject.domain.Film
 import com.uladzislaumak.firstproject.data.entity.TmdbFilm
 import com.uladzislaumak.firstproject.data.entity.Film
 

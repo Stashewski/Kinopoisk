@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.uladzislaumak.firstproject.R
 import com.uladzislaumak.firstproject.databinding.FragmentSettingsBinding
 import com.uladzislaumak.firstproject.utils.AnimationHelper
-import com.uladzislaumak.firstproject.viewmodel.SettingsFragmentViewModel
+import com.auladzislaumak.firstproject.viewmodel.SettingsFragmentViewModel
 
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
@@ -29,7 +29,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Подключаем анимаци, и передаем номер позиции у кнопки в нижнем меню
-        AnimationHelper.performFragmentCircularRevealAnimation(settings_fragment_root, requireActivity(), 5)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.settingsFragmentRoot, requireActivity(), 5)
         //Слушаем какой у нас сейчас выбран вариант в настройках
         viewModel.categoryPropertyLifeData.observe(viewLifecycleOwner, Observer<String> {
             when(it) {

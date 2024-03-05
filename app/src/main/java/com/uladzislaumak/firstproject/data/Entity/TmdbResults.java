@@ -1,4 +1,5 @@
 package com.uladzislaumak.firstproject.data.Entity;
+
 import com.google.gson.annotations.SerializedName
 
 data class TmdbResults(

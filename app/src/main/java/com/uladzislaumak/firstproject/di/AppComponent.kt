@@ -5,7 +5,6 @@ import com.uladzislaumak.firstproject.di.modules.DomainModule
 import com.uladzislaumak.firstproject.di.modules.RemoteModule
 import com.uladzislaumak.firstproject.viewmodel.HomeFragmentViewModel
 import com.uladzislaumak.firstproject.viewmodel.SettingsFragmentViewModel
-
 import dagger.Component
 import javax.inject.Singleton
 

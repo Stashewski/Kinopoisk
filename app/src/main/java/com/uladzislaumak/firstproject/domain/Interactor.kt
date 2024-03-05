@@ -1,23 +1,12 @@
 package com.uladzislaumak.firstproject.domain
 
-import com.uladzislaumak.firstproject.data.*
-import com.uladzislaumak.firstproject.utils.Converter
-import com.uladzislaumak.firstproject.data.preferenes.PreferenceProvider
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import com.uladzislaumak.firstproject.data.API
 import com.uladzislaumak.firstproject.data.MainRepository
 import com.uladzislaumak.firstproject.data.TmdbApi
-import com.uladzislaumak.firstproject.utils.Converter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
-import com.uladzislaumak.firstproject.data.API
 import com.uladzislaumak.firstproject.data.entity.Film
 import com.uladzislaumak.firstproject.data.entity.TmdbResults
+import com.uladzislaumak.firstproject.data.preferenes.PreferenceProvider
+import com.uladzislaumak.firstproject.utils.Converter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -25,6 +14,14 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.PublishSubject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
@@ -52,6 +49,11 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
             }
         })
     }
+
+    fun getSearchResultFromApi(search: String): Observable<List<Film>> = retrofitService.getFilmFromSearch(API.KEY, "ru-RU", search, 1)
+        .map {
+            Converter.convertApiListToDTOList(it.tmdbFilms)
+        }
 
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {

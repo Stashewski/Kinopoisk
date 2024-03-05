@@ -5,6 +5,7 @@ import com.uladzislaumak.firstproject.data.ApiConstants
 import com.uladzislaumak.firstproject.data.TmdbApi
 import dagger.Module
 import dagger.Provides
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

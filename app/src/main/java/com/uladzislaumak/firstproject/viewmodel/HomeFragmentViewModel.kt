@@ -1,23 +1,16 @@
 package com.uladzislaumak.firstproject.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.uladzislaumak.firstproject.App
-import com.uladzislaumak.firstproject.domain.Interactor
-import javax.inject.Inject
-import androidx.lifecycle.LiveData
-import javax.inject.Inject
 import com.uladzislaumak.firstproject.data.entity.Film
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
-import javax.inject.Inject
+import com.uladzislaumak.firstproject.domain.Interactor
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.PublishSubject
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
     //Инициализируем интерактор
@@ -36,4 +29,7 @@ class HomeFragmentViewModel : ViewModel() {
     fun getFilms() {
         interactor.getFilmsFromApi(1)
     }
+
+    fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
+
 }

@@ -1,6 +1,5 @@
 package com.uladzislaumak.firstproject.view.fragments
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,7 @@ import com.uladzislaumak.firstproject.data.entity.Film
 import com.uladzislaumak.firstproject.view.rv_adapters.FilmListRecyclerAdapter
 import com.uladzislaumak.firstproject.view.rv_adapters.TopSpacingItemDecoration
 import com.uladzislaumak.firstproject.databinding.FragmentFavoritesBinding
-import com.auladzislaumak.firstproject.utils.AnimationHelper
+import com.uladzislaumak.firstproject.utils.AnimationHelper
 import com.uladzislaumak.firstproject.view.MainActivity
 
 class FavoritesFragment : Fragment() {
@@ -30,7 +29,7 @@ class FavoritesFragment : Fragment() {
         //Получаем список при транзакции фрагмента
         val favoritesList: List<Film> = emptyList()
 
-        AnimationHelper.performFragmentCircularRevealAnimation(favorites_fragment_root, requireActivity(),2)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(),2)
 
         binding.favoritesRecycler.apply {
             filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {

@@ -2,6 +2,7 @@ package com.uladzislaumak.firstproject.di.modules
 
 
 import android.content.Context
+import com.uladzislaumak.firstproject.App
 import com.uladzislaumak.firstproject.data.MainRepository
 import com.uladzislaumak.firstproject.data.TmdbApi
 import com.uladzislaumak.firstproject.data.preferenes.PreferenceProvider
@@ -9,7 +10,7 @@ import com.uladzislaumak.firstproject.domain.Interactor
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
-import com.uladzislaumak.firstproject.App
+
 
 @Module
 //Передаем контекст для SharedPreferences через конструктор
