@@ -6,6 +6,7 @@ import com.uladzislaumak.firstproject.di.DaggerAppComponent
 import com.uladzislaumak.firstproject.di.modules.DatabaseModule
 import com.uladzislaumak.firstproject.di.modules.DomainModule
 import com.uladzislaumak.firstproject.di.modules.RemoteModule
+import com.uladzislaumak.remote_module.DaggerRemoteComponent
 
 class App : Application() {
         lateinit var dagger: AppComponent
@@ -14,8 +15,9 @@ class App : Application() {
         super.onCreate()
         instance = this
         //Создаем компонент
+        val remoteProvider = DaggerRemoteComponent.create()
         dagger = DaggerAppComponent.builder()
-        .remoteModule(RemoteModule())
+        .remoteProvider(remoteProvider)
         .databaseModule(DatabaseModule())
         .domainModule(DomainModule(this))
         .build()
