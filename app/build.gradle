@@ -7,7 +7,7 @@ plugins {
 
 
 }
-
+apply from: "$project.rootDir/versions.gradle"
 
 android {
     namespace 'com.uladzislaumak.firstproject'
@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "com.uladzislaumak.firstproject"
-        minSdk 33
+        minSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -96,5 +96,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    //Remote module
+    implementation project(":remote_module")
 
 }
