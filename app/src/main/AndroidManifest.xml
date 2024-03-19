@@ -15,6 +15,14 @@
 
 
         tools:targetApi="33">
+        <receiver
+            android:name=".BatteryReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+            </intent-filter>
+        </receiver>
         
         <activity
             android:name=".view.MainActivity"
@@ -25,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

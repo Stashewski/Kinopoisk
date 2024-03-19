@@ -7,7 +7,7 @@ plugins {
 
 
 }
-apply from: "$project.rootDir/versions.gradle"
+
 
 android {
     namespace 'com.uladzislaumak.firstproject'

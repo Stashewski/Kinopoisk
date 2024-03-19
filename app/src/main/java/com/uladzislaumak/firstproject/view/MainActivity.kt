@@ -7,10 +7,15 @@ import com.uladzislaumak.firstproject.*
 import com.uladzislaumak.firstproject.databinding.ActivityMainBinding
 import com.uladzislaumak.firstproject.data.entity.Film
 import com.uladzislaumak.firstproject.view.fragments.*
+import android.content.BroadcastReceiver
+import android.content.Intent
+import android.content.IntentFilter
+import com.uladzislaumak.firstproject.receivers.ConnectionChecker
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var receiver: BroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,17 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
 
+        receiver = ConnectionChecker()
+        val filters = IntentFilter().apply {
+            addAction(Intent.ACTION_POWER_CONNECTED)
+            addAction(Intent.ACTION_BATTERY_LOW)
+        }
+        registerReceiver(receiver, filters)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(receiver)
     }
 
     fun launchDetailsFragment(film: Film) {
